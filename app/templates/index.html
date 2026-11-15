@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>TaskFlow</title>
+</head>
+<body>
+    <h1>TaskFlow - Gestion des tâches</h1>
+
+    <form method="POST">
+        <input
+            type="text"
+            name="title"
+            placeholder="Nouvelle tâche"
+            required
+        >
+        <button type="submit">Ajouter</button>
+    </form>
+
+    <h2>Liste des tâches</h2>
+
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task[1] }}</li>
+        {% else %}
+            <li>Aucune tâche pour le moment.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
