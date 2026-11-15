@@ -1,0 +1,30 @@
+
+services:
+  db:
+    image: postgres:16
+    container_name: taskflow-db
+    environment:
+      POSTGRES_DB: taskflow
+      POSTGRES_USER: taskflow
+      POSTGRES_PASSWORD: taskflow123
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+
+  web:
+    build: ./app
+    container_name: taskflow-web
+    environment:
+      DB_HOST: db
+      DB_NAME: taskflow
+      DB_USER: taskflow
+      DB_PASSWORD: taskflow123
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
