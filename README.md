@@ -21,6 +21,7 @@ The project focuses on containerization, orchestration, CI/CD, and GitOps practi
 - **Container Registry:** GitHub Container Registry (GHCR)
 - **GitOps:** Argo CD
 
+
 ## Project Structure
 
 ```text
